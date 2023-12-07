@@ -28,7 +28,7 @@
 
     1%,
     99% {
-        background: black;
+        background: #8b4b3f;
     }
 }
 
@@ -61,12 +61,26 @@
     }
 }
 
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+
+    50% {
+        bottom: 100px;
+    }
+    100%{
+        bottom: 0;
+    }
+}
+
 body {
     background: black;
 }
 
 .canvas {
-    margin: 100px auto 0;
+    position: relative;
+    margin: 200px auto 0;
     display: flex;
     justify-content: center;
     justify-items: end;
@@ -88,15 +102,16 @@ body {
 }
 
 .stive {
+    position: relative;
+    position: absolute;
     width: 250px;
     height: 1000px;
     /* border: 1px solid white; */
 
-
     .body {
-
         height: 60%;
         background: #00b1b1;
+        transform-origin: bottom center;
 
         /* border: 1px solid red; */
 
@@ -151,7 +166,7 @@ body {
 
             .hand {
                 position: absolute;
-                transform-origin: 50% 10%;
+                transform-origin: 50% 15%;
                 height: 120%;
                 width: 50%;
                 /* border: 1px solid red; */
@@ -224,40 +239,47 @@ body {
     }
 }
 
-.hand.l,
-.leg.r {
-    animation-name: l-move;
-    animation-duration: 3s;
-    animation-fill-mode: both;
-}
-
-.leg.l {
-    animation-name: r-move;
-    animation-duration: 3s;
-    animation-fill-mode: both;
-}
-
-/* Моргание */
-.pixel:nth-child(34),
-.pixel:nth-child(39),
-.pixel:nth-child(35),
-.pixel:nth-child(38) {
-    animation-name: blenk;
-    animation-delay: 5s;
+.stive:active {
+    animation-name: jump;
     animation-duration: 1s;
     animation-fill-mode: both;
+
+    .leg.r {
+        animation-name: l-move;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
+
+    .leg.l {
+        animation-name: r-move;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
 }
 
-.hand.r {
-    animation-name: r-move, hello;
-    animation-delay: 0s, 4s;
-    animation-duration: 3s;
-    animation-fill-mode: both;
-}
 
-.body {
-    animation-name: body-move;
-    animation-delay: 4s;
-    animation-duration: 3s;
-    animation-fill-mode: both;
+.stive:hover {
+
+    /* Моргание */
+    .pixel:nth-child(34),
+    .pixel:nth-child(39),
+    .pixel:nth-child(35),
+    .pixel:nth-child(38) {
+        animation-name: blenk;
+        animation-delay: 1s;
+        animation-duration: 0.5s;
+        animation-fill-mode: both;
+    }
+
+    .hand.r {
+        animation-name: hello;
+        animation-duration: 3s;
+        animation-fill-mode: both;
+    }
+
+    .body {
+        animation-name: body-move;
+        animation-duration: 3s;
+        animation-fill-mode: both;
+    }
 }
