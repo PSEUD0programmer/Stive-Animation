@@ -69,7 +69,8 @@
     50% {
         bottom: 100px;
     }
-    100%{
+
+    100% {
         bottom: 0;
     }
 }
@@ -79,33 +80,34 @@ body {
 }
 
 .canvas {
-    position: relative;
-    margin: 200px auto 0;
     display: flex;
-    justify-content: center;
-    justify-items: end;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
 
-    width: 1000px;
-    height: 1000px;
+    width: 100vw;
+    height: 100vh;
     /* border: 1px solid white; */
 
 }
 
 .ground {
-    height: 500px;
-    background: #8b4b3f;
+    width: 100%;
+    height: 20vh;
+    background: #966c4a;
 
     .grass {
         height: 20%;
-        background: green;
+        background: #67a73d;
     }
 }
 
 .stive {
     position: relative;
-    position: absolute;
-    width: 250px;
-    height: 1000px;
+    width: 20vh;
+    height: 100vh;
+    max-width: 125px;
+    max-height: 500px;
     /* border: 1px solid white; */
 
     .body {
@@ -116,7 +118,7 @@ body {
         /* border: 1px solid red; */
 
         .head {
-            height: 250px;
+            height: 45%;
             /* border: 1px solid white; */
 
             display: grid;
@@ -157,39 +159,36 @@ body {
             }
         }
 
-        .hands {
-            height: 300px;
+        .torso {
+            height: 50%;
             /* border: 1px solid red; */
             position: relative;
             display: flex;
             justify-content: center;
 
-            .hand {
+            .elbow {
                 position: absolute;
-                transform-origin: 50% 15%;
-                height: 120%;
+                transform-origin: center;
+                height: 42%;
                 width: 50%;
                 /* border: 1px solid red; */
+                background: #00b1b1;
 
-                display: grid;
-                grid-template-rows: 1fr 2fr;
-
-                >div:nth-child(1) {
-                    background: #00b1b1;
-                }
-
-                >div:nth-child(2) {
+                .hand {
+                    position: absolute;
+                    top: 100%;
+                    width: 100%;
+                    height: 180%;
                     background: #b3836c;
                 }
-
             }
 
-            .hand.r {
+            .elbow.r {
                 left: 100%;
-                /* transform: rotate(-30deg); */
+                /* transform: rotate(-90deg); */
             }
 
-            .hand.l {
+            .elbow.l {
                 left: -50%;
                 /* transform: rotate(30deg); */
             }
@@ -202,7 +201,6 @@ body {
     }
 
     .legs {
-
         position: relative;
         display: flex;
 
@@ -271,7 +269,7 @@ body {
         animation-fill-mode: both;
     }
 
-    .hand.r {
+    .elbow.r {
         animation-name: hello;
         animation-duration: 3s;
         animation-fill-mode: both;
